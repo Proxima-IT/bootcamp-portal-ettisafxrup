@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2weeksWebBootcamp - Login</title>
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      console.log(localStorage.getItem("email"))
+      if (localStorage.getItem("email")) {
+        window.location.href = "./pages/video.html"
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <img
+        src="https://loopnest-academy.netlify.app/icon.png"
+        alt=""
+        width="100"
+      />
+      <form id="emailForm">
+        <input
+          type="email"
+          id="emailInput"
+          placeholder="Your Bootcamp Email"
+          required
+        />
+        <button id="submit" type="submit">➾</button>
+        <p id="error" class="hidden"></p>
+      </form>
+    </div>
+
+    <script src="login.js"></script>
+    <script>
+      function toggleNav() {
+        const links = document.getElementById("nav-links")
+        links.style.display = links.style.display === "flex" ? "none" : "flex"
+      }
+    </script>
+  </body>
+</html>

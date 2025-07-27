@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+Da+2&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="https://loopnest-academy.netlify.app/assets/team/logo/icon.png"
+      type="image/x-icon"
+    />
+    <title>Bootcamp Dashboard | ettisafxrup</title>
+    <link rel="stylesheet" href="video.css" />
+
+    <script>
+      if (!localStorage.getItem("email")) {
+        window.location.href = "/"
+      }
+    </script>
+  </head>
+  <body>
+    <nav>
+      <a
+        href="https://loopnest-academy.netlify.app/"
+        style="text-decoration: none"
+      >
+        <div class="logo" style="display: flex">
+          <img
+            src="https://loopnest-academy.netlify.app/assets/team/logo/icon.png"
+            alt=""
+            height="55"
+          />
+          <h4 style="margin-top: 12px; color: #622291">LoopNest</h4>
+        </div>
+      </a>
+      <div class="nav-toggle" id="nav-toggle" onclick="toggleNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="nav-links" id="nav-links">
+        <a><span style="color: red">#</span>2weeksWebBootcamp</a>
+        <div style="position: relative; display: inline-block">
+          <button style="border: none">
+            <strong
+              id="name"
+              style="
+                color: black;
+                background-color: #ffeb3b82;
+                color: #333;
+                border: 1px solid #fdd835;
+                padding: 10px 20px;
+                border-radius: 6px;
+                font-size: 16px;
+                cursor: pointer;
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+                transition: background-color 0.3s;
+              "
+              onmouseover="this.style.backgroundColor='#ffeb3b'"
+              onmouseout="this.style.backgroundColor='#fff9c4'"
+              >User</strong
+            >
+          </button>
+
+          <div
+            style="
+              display: none;
+              position: absolute;
+              background-color: #fffde7;
+              min-width: 160px;
+              box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+              border-radius: 5px;
+              z-index: 1;
+            "
+            id="dropdownContent"
+          >
+            <a
+              id="email"
+              style="
+                color: black;
+                padding: 10px 16px;
+                display: block;
+                text-decoration: none;
+              "
+              >Email</a
+            >
+            <strong id="logout">Logout</strong>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <!-- Left: Video + Notes -->
+      <div class="left">
+        <div class="video-container">
+          <iframe
+            id="video-frame"
+            src=""
+            title="Course Video"
+            allow="autoplay; encrypted-media"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <div class="notes-section">
+          <strong>রিসোর্স/অ্যাটাচমেন্টস:</strong>
+          <a id="github-link" href="#" target="_blank">
+            <img
+              src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+              alt="GitHub"
+              style="width: 40px; vertical-align: middle; margin-right: 4px"
+            />
+          </a>
+          <a id="pdf-link" href="" target="_blank">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/1200px-PDF_file_icon.svg.png"
+              alt="PDF"
+              style="width: 24px; vertical-align: middle; margin-left: 4px"
+            />
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Modules -->
+      <div class="right">
+        <h2>🚴‍♀️ কোর্স মডিউলস</h2>
+        <button id="view-module">💀</button>
+        <ul class="modules" id="module-list"></ul>
+      </div>
+    </div>
+
+    <script type="module" src="video.js"></script>
+    <script>
+      document.getElementById("name").innerText =
+        "👤 " + localStorage.getItem("userName") + " ↴"
+
+      document.getElementById("email").innerText =
+        "✉ " + localStorage.getItem("email")
+
+      document.getElementById("logout").addEventListener("click", () => {
+        localStorage.clear()
+        window.location.href = "/"
+      })
+      // Logout Functionality
+      const button = document.querySelector("button")
+      const dropdown = document.getElementById("dropdownContent")
+
+      function toggleNav() {
+        const navLinks = document.getElementById("nav-links")
+        const navToggle = document.getElementById("nav-toggle")
+        navLinks.classList.toggle("open")
+        navToggle.classList.toggle("active")
+      }
+
+      button.onclick = () => {
+        dropdown.style.display =
+          dropdown.style.display === "block" ? "none" : "block"
+      }
+    </script>
+  </body>
+</html>
